@@ -1,3 +1,20 @@
+# Deprecated: Do Not Use
+At Domo, we use a custom fork of Fabric.js. We do this cause of the optional dependencies on the repo that we don't need/want. 
+**This repo used to be the our custom repo**. We have since moved to the following repo: [https://github.com/domoinc/fabricjs](https://github.com/domoinc/fabricjs).
+*They look like the same repo, but the `.` in `Fabric.js` is not in the new repo title*.
+
+The reason that we moved repos is because of how Frosty initially setup the dependency on our custom fork. He initially
+set our internal pieces to depend on the master branch of the Fabric fork in this repo. He should have had those internal
+pieces depend on the `v1.7.3` tag. If he had done that, he would have been able to merge in the latest code from the 
+original Fabric.js repo, without affecting all builds. But, since all of the current builds depend on master, we can't
+merge in the latest changes, as that will likely break all builds. 
+
+So, starting 6/7/2017, Frosty make a second repo, and had all internal pieces begin to point to that repo, to the `v1.7.3`
+tag. This way, we can rebase the original Fabric.js back into our repo, without affecting the builds. Because the builds
+will be pointing towards the `v1.7.3` tag, merging new changes into the master branch won't affect the builds. This is 
+how Frosty should have set this up initially. He learned his lesson. 
+
+
 ### Fabric
 
 <!-- chat, support -->
